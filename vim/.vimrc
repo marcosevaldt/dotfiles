@@ -66,11 +66,17 @@ Plug 'scrooloose/syntastic'
 Plug 'airblade/vim-gitgutter'
 Plug 'godlygeek/tabular'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'itchyny/lightline.vim'
 call plug#end()
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
 
 set number
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 set updatetime=100
+set laststatus=2
 colorscheme wombat256mod
