@@ -65,6 +65,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/syntastic'
 Plug 'airblade/vim-gitgutter'
 Plug 'godlygeek/tabular'
+Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 
 set number
