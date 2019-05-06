@@ -84,6 +84,7 @@ set updatetime=100
 set laststatus=2
 set splitbelow splitright
 set wildmode=longest,list,full
+set showcmd
 colorscheme wombat256mod
 autocmd BufWritePre * %s/\s\+$//e
 map <C-h> <C-w>h
