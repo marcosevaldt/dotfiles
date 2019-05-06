@@ -54,9 +54,10 @@ endif
 "set hidden		" Hide buffers when they are abandoned
 "set mouse=a		" Enable mouse usage (all modes)
 
-" Source a global configuration file if available
-if filereadable("/etc/vim/vimrc.local")
-  source /etc/vim/vimrc.local
+if ! filereadable(expand('~/.vim/autoload/plug.vim'))
+	echo "Downloading junegunn/vim-plug to manage plugins..."
+	silent !mkdir -p ~/.vim/autoload/
+	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ~/.vim/autoload/plug.vim
 endif
 
 call plug#begin('~/.vim/plugged')
@@ -67,6 +68,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'godlygeek/tabular'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 let g:lightline = {
@@ -79,4 +82,11 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 set updatetime=100
 set laststatus=2
+set splitbelow splitright
+set wildmode=longest,list,full
 colorscheme wombat256mod
+autocmd BufWritePre * %s/\s\+$//e
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
